@@ -1,4 +1,9 @@
-<%= form_with(model: [@college, residence_hall], local: true) do |form| %>
-    <%= form.text_field :name %>
-    <%= form.submit %>
+<%= form_with(model: [@college, residence_hall], local: true) do |f| %>
+    <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+    <div class="actions">
+        <%= f.submit %>
+    </div>
 <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_11_014251) do
+ActiveRecord::Schema.define(version: 2021_12_11_065509) do
 
   create_table "colleges", force: :cascade do |t|
     t.string "name"
@@ -26,4 +26,26 @@ ActiveRecord::Schema.define(version: 2021_12_11_014251) do
     t.index ["college_id"], name: "index_residence_halls_on_college_id"
   end
 
+  create_table "residents", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.time "curfew"
+    t.string "phone_number"
+    t.string "student_id"
+    t.string "email"
+    t.integer "room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_residents_on_room_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "room_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "residence_hall_id", null: false
+    t.index ["residence_hall_id"], name: "index_rooms_on_residence_hall_id"
+  end
+
+  add_foreign_key "rooms", "residence_halls"
 end

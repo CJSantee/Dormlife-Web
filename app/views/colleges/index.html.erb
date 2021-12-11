@@ -9,7 +9,7 @@
         <div class="options">
             <%= link_to "View", college_path(college) %>
             <%= link_to "Edit", edit_college_path(college) %>
-            <%= link_to "Delete", college, method: :delete, class: "destructive" %>
+            <%= link_to "Delete", college, method: :delete, data: { confirm: "Are you sure?" }, class: "destructive" %>
         </div>
     </div>
 <% end %>

@@ -1,0 +1,15 @@
+<div class="heading">
+    <h2>Residents (<%= @residents.length%>)</h2>
+    <%= link_to "New", "/residents/new" %>
+</div>
+
+<% @residents.each do |resident| %>
+    <div class="row">
+        <h3><%= resident.first_name %> <%= resident.last_name %></h3>
+        <div class="options">
+            <a href="">View</a>
+            <a href="">Edit</a>
+            <a href="" class="destructive">Delete</a>
+        </div>
+    </div>
+<% end %>

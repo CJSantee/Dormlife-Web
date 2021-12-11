@@ -7,6 +7,7 @@ class ResidenceHallsController < ApplicationController
     end
 
     def show 
+        @rooms = @residence_hall.rooms
     end
 
     def new
@@ -30,7 +31,7 @@ class ResidenceHallsController < ApplicationController
 
     def destroy
         @residence_hall.destroy
-        redirect_to college_path(@college)
+        redirect_to @college
     end
     
     private

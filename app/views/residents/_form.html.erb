@@ -1,0 +1,37 @@
+<%= form_for(@resident) do |f| %>
+    <div class="field">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+    </div>
+    <div class="field">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+    </div>
+    <div class="field">
+        <%= f.label :curfew %>
+        <%= f.time_field :curfew %>
+    </div>
+    <div class="field">
+        <%= f.label :phone_number %>
+        <%= f.telephone_field :phone_number %>
+    </div>
+    <div class="field">
+        <%= f.label :student_id %>
+        <%= f.text_field :student_id %>
+    </div>
+    <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+    </div>
+    <div class="field">
+        <%= f.label :room %>
+        <%= f.select(:room_id) do %>
+            <% @rooms.each do |room| %>
+                <%= content_tag(:option, room.room_number, value: room) %>
+            <% end %>
+        <% end %>
+    </div>
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+<% end %>

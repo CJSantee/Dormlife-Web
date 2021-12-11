@@ -1,0 +1,22 @@
+<div class="heading">
+    <%= link_to college_residence_hall_path(@college, @residence_hall) do %>
+        <h2><%= @residence_hall.name%></h2>
+    <% end %>
+    <div class="options">
+        <div>
+            <%= link_to "Edit", edit_college_residence_hall_room_path(@college, @residence_hall, @room) %>
+            <%= link_to "Back", :back %>
+        </div>
+    </div>
+</div>
+<h3>Room: <%= @room.room_number %></h3>
+<% @residents.each do |resident| %>
+    <div class="row">
+        <h3><%= resident.first_name %></h3>
+        <div class="options">
+            <a href="">View</a>
+            <a href="">Edit</a>
+            <a href="" class="destructive">Delete</a>
+        </div>
+    </div>
+<% end %>

@@ -2,5 +2,17 @@
     <h2><%= @residence_hall.name%></h2>
     <div class="options">
         <%= link_to "Edit", edit_college_residence_hall_path(@college, @residence_hall) %>
+        <%= link_to "Add Room", new_college_residence_hall_room_path(@college, @residence_hall) %>
     </div>
 </div>
+
+<% @rooms.each do |room| %>
+    <div class="row">
+        <h3><%= room.room_number %></h3>
+        <div class="options">
+            <%= link_to "View", college_residence_hall_room_path(@college, @residence_hall, room) %>
+            <%= link_to "Edit", edit_college_residence_hall_room_path(@college, @residence_hall, room) %>
+            <%= link_to "Delete", [@college, @residence_hall, room], method: :delete, data: { confirm: "Are you sure?" }, class: "destructive" %>
+        </div>
+    </div>
+<% end %>
