@@ -1,5 +1,20 @@
+<div class="heading">
+    <h2>New Room</h2>
+    <div class="options">
+        <%= link_to "Cancel", :back %>
+    </div>
+</div>
 <div class="form">
     <h3><%= @residence_hall.name %></h3>
     <%= render 'form', room: @room %>
-    <%= link_to "Cancel", :back %>
+</div>
+<div class="import">
+    <h3>Import</h3>
+    <%= form_tag "/colleges/#{@residence_hall.college_id}/residence_halls/import", multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "Import CSV" %>
+    <% end %>
+    <div class="code">
+        <p>room number<br/>Room 1<br/>Room 2<br/>Room 3</p>
+    </div>
 </div>

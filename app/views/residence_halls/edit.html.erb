@@ -1,5 +1,10 @@
+<div class="heading">
+    <h2>Edit Residence Hall</h2>
+    <div class="options">
+        <%= link_to "Cancel", :back %>
+    </div>
+</div>
 <div class="form">
     <h3><%= @college.name %></h3>
     <%= render 'form', residence_hall: @residence_hall %>
-    <%= link_to "Cancel", :back %>
 </div>
