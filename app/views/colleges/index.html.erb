@@ -1,0 +1,9 @@
+<div>
+    <h1>Colleges</h1>
+    <% @colleges.each do |college| %>
+        <p><%= college.name %></p>
+        <%= link_to "View", college %>
+        <%= button_to "Delete", college, method: :delete %>
+    <% end %>
+    <%= link_to "New", "/colleges/new"%>
+</div>
