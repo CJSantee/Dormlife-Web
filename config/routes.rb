@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   post '/colleges/import' => 'colleges#import'
 
+  post '/colleges/:college_id/residence_halls/import' => 'residence_halls#import'
+
   resources :colleges do
     resources :residence_halls do
       resources :rooms

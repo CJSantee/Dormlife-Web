@@ -33,6 +33,11 @@ class ResidenceHallsController < ApplicationController
         @residence_hall.destroy
         redirect_to @college
     end
+
+    def import
+        ResidenceHall.import(params[:file], params[:college_id])
+        redirect_to @college
+    end
     
     private
     def get_college 

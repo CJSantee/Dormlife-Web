@@ -77,6 +77,10 @@ a:hover {
     color: rgb(150, 50, 50);
 }
 
+.form h3 {
+    margin: 0.5rem 0;
+}
+
 .form input{
     padding: 0.25rem;
     margin: 1rem 0.5rem;
@@ -84,4 +88,18 @@ a:hover {
 
 .import h3 {
     margin: 1rem 0;
+}
+
+.code {
+    background-color: rgb(30, 30, 30);
+    color: rgb(204,204,204);
+    font-family: Menlo, Monaco, 'Courier New', monospace;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0.5rem;
+    max-width: 50%;
+    border: 1px black solid; 
+}
+
+.code p {
+    margin: 0;
 }

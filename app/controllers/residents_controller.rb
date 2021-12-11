@@ -39,6 +39,7 @@ class ResidentsController < ApplicationController
         redirect_to '/residents'
     end
 
+    private
     def resident_params
         params.require(:resident).permit(:first_name, :last_name, :curfew, :phone_number, :student_id, :email, :room_id)
     end
