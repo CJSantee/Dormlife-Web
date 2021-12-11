@@ -12,11 +12,12 @@
 <h3>Room: <%= @room.room_number %></h3>
 <% @residents.each do |resident| %>
     <div class="row">
-        <h3><%= resident.first_name %></h3>
+        <h3><%= resident.first_name %> <%= resident.last_name %></h3>
+        <p><%= resident.student_id %></p>
         <div class="options">
-            <a href="">View</a>
-            <a href="">Edit</a>
-            <a href="" class="destructive">Delete</a>
+            <%= link_to "View", resident_path(resident)%>
+            <%= link_to "Edit", edit_resident_path(resident)%>
+            <%= link_to "Delete", [resident], method: :delete, data: { confirm: "Are you sure?" }, class: "destructive" %>
         </div>
     </div>
 <% end %>

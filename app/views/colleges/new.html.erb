@@ -1,3 +1,9 @@
+<div class="heading">
+    <h2>New College</h2>
+    <div class="options">
+        <%= link_to "Cancel", :back %>
+    </div>
+</div>
 <div class="form">
     <%= form_for(@college) do |f| %>
         <div class="field">
@@ -8,5 +14,12 @@
             <%= f.submit "Add" %>
         </div>
     <% end %>
-    <%= link_to "Cancel", :back %>
+</div>
+<hr>
+<div class="import">
+    <h3>Import</h3>
+    <%= form_tag colleges_import_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "Import CSV" %>
+    <% end %>
 </div>

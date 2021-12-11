@@ -1,0 +1,11 @@
+<div class="form">
+    <%= form_tag import_users_path, multipart: true do %>
+        <div class="field">
+            <%= file_field_tag :file %>
+        </div>
+        <div class="actions">
+            <%= submit_tag "Import CSV" %>
+        </div>
+    <% end %>
+    <%= link_to "Cancel", :back %>
+</div>

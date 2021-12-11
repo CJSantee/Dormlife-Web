@@ -1,6 +1,8 @@
 <div class="heading">
     <h2>Colleges (<%= @colleges.length%>)</h2>
-    <%= link_to "New", "/colleges/new" %>
+    <div class="options">
+        <%= link_to "New", "/colleges/new" %>
+    </div>
 </div>
 
 <% @colleges.each do |college| %>

@@ -81,3 +81,7 @@ a:hover {
     padding: 0.25rem;
     margin: 1rem 0.5rem;
 }
+
+.import h3 {
+    margin: 1rem 0;
+}

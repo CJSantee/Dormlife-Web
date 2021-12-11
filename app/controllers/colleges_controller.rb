@@ -36,6 +36,11 @@ class CollegesController < ApplicationController
         redirect_to "/colleges"
     end
 
+    def import 
+        College.import(params[:file])
+        redirect_to root_url
+    end
+
     private
     def college_params
         params.require(:college).permit(:name)

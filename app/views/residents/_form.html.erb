@@ -27,7 +27,7 @@
         <%= f.label :room %>
         <%= f.select(:room_id) do %>
             <% @rooms.each do |room| %>
-                <%= content_tag(:option, room.room_number, value: room) %>
+                <%= content_tag(:option, room.room_number, value: room.id) %>
             <% end %>
         <% end %>
     </div>

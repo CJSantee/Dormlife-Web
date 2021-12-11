@@ -1,8 +1,8 @@
 <div class="heading">
-    <h2><%= @college.name%> (<%= @residence_halls.length%>)</h2>
+    <h2><%= @college.name%>: Residence Halls (<%= @residence_halls.length%>)</h2>
     <div class="options">
         <%= link_to "Edit", edit_college_path(@college) %>
-        <%= link_to "Add Residence Hall", new_college_residence_hall_path(@college) %>
+        <%= link_to "New", new_college_residence_hall_path(@college) %>
     </div>
 </div>
 
