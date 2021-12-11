@@ -11,6 +11,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="main">
+        <div class="header">
+          <h1>Dormlife</h1>
+          <%= link_to "Colleges", "/colleges" %>
+        </div>
+        <%= yield %>
+    </div>
   </body>
 </html>

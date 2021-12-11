@@ -1,9 +1,15 @@
-<div>
-    <h1>Colleges</h1>
-    <% @colleges.each do |college| %>
-        <p><%= college.name %></p>
-        <%= link_to "View", college %>
-        <%= button_to "Delete", college, method: :delete %>
-    <% end %>
-    <%= link_to "New", "/colleges/new"%>
+<div class="heading">
+    <h2>Colleges (<%= @colleges.length%>)</h2>
+    <%= link_to "New", "/colleges/new" %>
 </div>
+
+<% @colleges.each do |college| %>
+    <div class="college">
+        <h3><%= college.name %></h3>
+        <div class="options">
+            <%= link_to "View", college_path(college) %>
+            <%= link_to "Edit", edit_college_path(college) %>
+            <%= link_to "Delete", college, method: :delete, class: "destructive" %>
+        </div>
+    </div>
+<% end %>
