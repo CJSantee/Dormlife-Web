@@ -1,4 +1,18 @@
-<div class="college">
-    <h3><%= @college.name %></h2>
-    <%= link_to "Edit", edit_college_path(@college)%>
+<div class="heading">
+    <h2><%= @college.name%> (<%= @residence_halls.length%>)</h2>
+    <div class="options">
+        <%= link_to "Edit", edit_college_path(@college) %>
+        <%= link_to "Add Residence Hall", new_college_residence_hall_path(@college) %>
+    </div>
 </div>
+
+<% @residence_halls.each do |residence_hall| %>
+    <div class="row">
+        <h3><%= residence_hall.name %></h3>
+        <div class="options">
+            <%= link_to "View", college_residence_hall_path(@college, residence_hall) %>
+            <%= link_to "Edit", edit_college_residence_hall_path(@college, residence_hall) %>
+            <%= link_to "Delete", [@college, residence_hall], method: :delete, data: { confirm: "Are you sure?" }, class: "destructive" %>
+        </div>
+    </div>
+<% end %>

@@ -18,6 +18,7 @@ class CollegesController < ApplicationController
 
     def show
         @college = College.find(params[:id])
+        @residence_halls = @college.residence_halls
     end
 
     def edit

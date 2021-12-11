@@ -1,0 +1,15 @@
+<div class="heading">
+    <h2><%= @college.name %> Residence Halls (<%= @residence_halls.length%>)</h2>
+    <%= link_to "New", "/colleges/new" %>
+</div>
+
+<% @residence_halls.each do |residence_hall| %>
+    <div class="row">
+        <h3><%= residence_hall.name %></h3>
+        <div class="options">
+            <%= link_to "View College", [@college]%>
+            <%= link_to "Edit Residence Hall", edit_college_residence_hall_path(@college, residence_hall) %>
+            <%= link_to "Delete", college, method: :delete, class: "destructive" %>
+        </div>
+    </div>
+<% end %>

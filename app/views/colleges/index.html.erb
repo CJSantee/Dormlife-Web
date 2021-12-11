@@ -4,7 +4,7 @@
 </div>
 
 <% @colleges.each do |college| %>
-    <div class="college">
+    <div class="row">
         <h3><%= college.name %></h3>
         <div class="options">
             <%= link_to "View", college_path(college) %>

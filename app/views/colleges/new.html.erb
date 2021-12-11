@@ -1,4 +1,10 @@
-<%= form_for(@college) do |f| %>
-    <%= f.text_field :name %>
-    <%= f.submit "Add" %>
-<% end %>
+<div class="form">
+    <h3>Name</h3>
+    <div>
+        <%= form_for(@college) do |f| %>
+            <%= f.text_field :name %>
+            <%= f.submit "Add" %>
+        <% end %>
+    </div>
+    <%= link_to "Cancel", :back %>
+</div>
