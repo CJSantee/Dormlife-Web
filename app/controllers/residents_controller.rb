@@ -12,6 +12,8 @@ class ResidentsController < ApplicationController
 
     def new
         @resident = Resident.new
+        @colleges = College.all
+        @residence_halls = ResidenceHall.all
         @rooms = Room.all
     end
     
@@ -36,6 +38,11 @@ class ResidentsController < ApplicationController
     def destroy
         @resident = Resident.find(params[:id])
         @resident.destroy
+        redirect_to '/residents'
+    end
+
+    def import 
+        Resident.import(params[:file])
         redirect_to '/residents'
     end
 

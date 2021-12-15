@@ -1,5 +1,26 @@
+<div class="heading">
+    <h2>New Resident</h2>
+    <div class="options">
+        <%= link_to "Cancel", :back %>
+    </div>
+</div>
 <div class="form">
-    <h3>New Resident</h3>
     <%= render 'form' %>
-    <%= link_to "Cancel", :back %>
+</div>
+<div class="import">
+    <h3>Import</h3>
+    <%= form_tag "/residents/import", multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "Import CSV" %>
+    <% end %>
+    <h3>Example CSV: </h3>
+    <div class="code">
+        <p>
+            first_name, last_name, curfew, phone_number, student_id, email, college, residence_hall, room_number
+            <br/>
+            John, Smith, 1:00 AM, (123) 456-7890, L12345678, jsmith@harvard.edu, Harvard University, Massachusetts Hall, 201
+            <br/>
+            Sarah, Williams, 12:00 PM, (987) 654-3210, L87654321, jwilliams@duke.edu, Duke University, Brown Hall, 315
+        </p>
+    </div>
 </div>

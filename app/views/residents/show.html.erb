@@ -10,7 +10,7 @@
 <p>Student ID: <%= @resident.student_id %></p>
 <p>Phone Number: <%= @resident.phone_number %></p>
 <p>Email: <%= @resident.email %></p>
-<p>Curfew: <%= @resident.curfew %></p>
+<p>Curfew: <%= @resident.curfew.strftime("%I:%M %p") %></p>
 <hr>
 <p>College: <%= @college.name %></p>
 <p>Residence Hall: <%= @residence_hall.name %></p>
