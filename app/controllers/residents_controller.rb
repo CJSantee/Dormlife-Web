@@ -1,4 +1,6 @@
 class ResidentsController < ApplicationController
+    require 'csv'
+
     def index
         @residents = Resident.all
     end
@@ -42,8 +44,33 @@ class ResidentsController < ApplicationController
     end
 
     def import 
-        Resident.import(params[:file])
+        puts "----- PARAMS -----"
+        params.each do |key, value|
+            print "#{key} => #{value} \n"
+        end
+        puts "----- PARAMS -----"
+     
+        puts "ORIGINAL FILENAME: #{params[:filename]}"
+        path = Rails.root.join('public', 'uploads', params[:filename])
+        File.open(path) do |file|
+            puts "FILEPATH: #{file.path}"
+            Resident.import(file)
+        end
+        File.delete(path) if File.exist?(path)
+        # Resident.import(params[:file])
         redirect_to '/residents'
+    end
+
+    def csv 
+        @file = params[:file]
+        puts "Filetype CSV: #{@file.class}"
+        File.open(Rails.root.join('public', 'uploads', @file.original_filename), 'w') do |file|
+            file.write(@file.read)
+        end
+
+        @rows = CSV.read(params[:file])
+        @headers = @rows.first
+        @headers.append("Custom")
     end
 
     private

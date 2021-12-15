@@ -3,10 +3,11 @@ class Resident < ApplicationRecord
     belongs_to :room
 
     def self.import(file)
-        puts "---------"
         CSV.foreach(file.path, headers: true) do |row|
             # Resident.create!(name: row)
             hash = row.to_h
+            
+            puts hash
 
             college = College.find_by name: hash["college"]
             residence_hall = ResidenceHall.find_by name: hash["residence_hall"], college_id: college.id
@@ -22,6 +23,5 @@ class Resident < ApplicationRecord
             end
             
         end
-        puts "---------"
     end
 end

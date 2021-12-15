@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   post '/colleges/:college_id/residence_halls/import' => 'residence_halls#import'
 
+  post '/residents/csv' => 'residents#csv'
+
   post '/residents/import' => 'residents#import'
 
   resources :colleges do

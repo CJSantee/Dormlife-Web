@@ -9,8 +9,8 @@
 </div>
 <div class="import">
     <h3>Import</h3>
-    <%= form_tag "/residents/import", multipart: true do %>
-        <%= file_field_tag :file %>
+    <%= form_tag "/residents/csv", multipart: true do %>
+        <%= file_field_tag :file, accept: 'text/csv' %>
         <%= submit_tag "Import CSV" %>
     <% end %>
     <h3>Example CSV: </h3>

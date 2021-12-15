@@ -1,0 +1,95 @@
+<h2>Select Columns</h2>
+<p><%= @file.original_filename %></p>
+<div class="form">
+    <%= form_with url: "/residents/import", method: :post do |f| %>
+        <div class="field">
+            <%= f.label :first_name %>
+            <%= f.select(:first_name_header) do %>
+                <% @headers.each do |header| %>
+                    <%= content_tag(:option, header, value: header) %>
+                <% end %>
+            <% end %>
+            <%= f.text_field :first_name_alt %>
+        </div>
+        <div class="field">
+            <%= f.label :last_name %>
+            <%= f.select(:last_name_header) do %>
+                <% @headers.each do |header| %>
+                    <%= content_tag(:option, header, value: header) %>
+                <% end %>
+            <% end %>
+            <%= f.text_field :last_name_alt %>
+        </div>
+        <div class="field">
+            <%= f.label :curfew %>
+            <%= f.select(:curfew_header) do %>
+                <% @headers.each do |header| %>
+                    <%= content_tag(:option, header, value: header) %>
+                <% end %>
+            <% end %>
+            <%= f.text_field :curfew_alt %>
+        </div>
+        <div class="field">
+            <%= f.label :phone_number %>
+            <%= f.select(:phone_number_header) do %>
+                <% @headers.each do |header| %>
+                    <%= content_tag(:option, header, value: header) %>
+                <% end %>
+            <% end %>
+            <%= f.text_field :phone_number_alt %>
+        </div>
+        <div class="field">
+            <%= f.label :student_id %>
+            <%= f.select(:student_id_header) do %>
+                <% @headers.each do |header| %>
+                    <%= content_tag(:option, header, value: header) %>
+                <% end %>
+            <% end %>
+            <%= f.text_field :student_id_alt %>
+        </div>
+        <div class="field">
+            <%= f.label :email %>
+            <%= f.select(:email_header) do %>
+                <% @headers.each do |header| %>
+                    <%= content_tag(:option, header, value: header) %>
+                <% end %>
+            <% end %>
+            <%= f.text_field :email_alt %>
+        </div>
+        <div class="field">
+            <%= f.label :college %>
+            <%= f.select(:college_header) do %>
+                <% @headers.each do |header| %>
+                    <%= content_tag(:option, header, value: header) %>
+                <% end %>
+            <% end %>
+            <%= f.text_field :college_alt %>
+        </div>
+        <div class="field">
+            <%= f.label :residence_hall %>
+            <%= f.select(:residence_hall_header) do %>
+                <% @headers.each do |header| %>
+                    <%= content_tag(:option, header, value: header) %>
+                <% end %>
+            <% end %>
+            <%= f.text_field :residence_hall_alt %>
+        </div>
+        <div class="field">
+            <%= f.label :room %>
+            <%= f.select(:room_header) do %>
+                <% @headers.each do |header| %>
+                    <%= content_tag(:option, header, value: header) %>
+                <% end %>
+            <% end %>
+            <%= f.text_field :room_alt %>
+        </div>
+
+        <%= hidden_field_tag :filename, @file.original_filename %>
+
+        <div class="actions">
+            <%= submit_tag "Import CSV" %>
+        </div>
+
+    <% end %>
+</div>
+
