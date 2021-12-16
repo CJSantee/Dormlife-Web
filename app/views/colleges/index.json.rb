@@ -1,0 +1,1 @@
+@colleges.to_json

@@ -44,20 +44,22 @@ class ResidentsController < ApplicationController
     end
 
     def import 
-        puts "----- PARAMS -----"
+        @headers = Hash.new
         params.each do |key, value|
-            print "#{key} => #{value} \n"
-        end
-        puts "----- PARAMS -----"
-     
-        puts "ORIGINAL FILENAME: #{params[:filename]}"
+            if key.ends_with?("header") || key.ends_with?("alt")
+                @headers[key]= value
+            end
+        end        
+        
+        # @headers.each do |key, value|
+        #     puts "#{key} => #{value}"
+        # end
+        
         path = Rails.root.join('public', 'uploads', params[:filename])
         File.open(path) do |file|
-            puts "FILEPATH: #{file.path}"
-            Resident.import(file)
+            Resident.import(file, @headers)
         end
         File.delete(path) if File.exist?(path)
-        # Resident.import(params[:file])
         redirect_to '/residents'
     end
 

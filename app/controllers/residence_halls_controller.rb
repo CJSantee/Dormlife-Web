@@ -2,12 +2,21 @@ class ResidenceHallsController < ApplicationController
     before_action :get_college
     before_action :set_residence_hall, only: [:show, :edit, :update, :destroy]
 
+    # BUG: Missing Template
     def index
         @residence_halls = @college.residence_halls
     end
 
+    # GET /colleges/:college_id/residence_halls/:id
+    # GET /colleges/:college_id/residence_halls/:id.json
     def show 
         @rooms = @residence_hall.rooms
+        respond_to do |format|
+            format.html 
+            format.json {
+                render :json => @rooms.to_json
+            }
+        end
     end
 
     def new

@@ -1,6 +1,15 @@
 class CollegesController < ApplicationController
+    
+    # GET /colleges
+    # GET /colleges.json
     def index
         @colleges = College.all
+        respond_to do |format|
+            format.html 
+            format.json {
+                render :json => @colleges.to_json
+            }
+        end
     end
 
     def new
@@ -16,9 +25,17 @@ class CollegesController < ApplicationController
         end
     end
 
+    # GET /colleges/:id
+    # GET /colleges/:id.json
     def show
         @college = College.find(params[:id])
         @residence_halls = @college.residence_halls
+        respond_to do |format|
+            format.html 
+            format.json {
+                render :json => @residence_halls.to_json
+            }
+        end
     end
 
     def edit
