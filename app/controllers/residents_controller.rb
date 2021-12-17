@@ -16,7 +16,11 @@ class ResidentsController < ApplicationController
         @resident = Resident.new
         @colleges = College.all
         @residence_halls = ResidenceHall.all
-        @rooms = Room.all
+
+        respond_to do |format| 
+            format.html 
+            format.js
+        end
     end
     
     def create 
@@ -28,7 +32,6 @@ class ResidentsController < ApplicationController
 
     def edit
         @resident = Resident.find(params[:id])
-        @rooms = Room.all
     end
 
     def update
@@ -73,6 +76,10 @@ class ResidentsController < ApplicationController
         @rows = CSV.read(params[:file])
         @headers = @rows.first
         @headers.append("Custom")
+    end
+
+    def filter_residence_halls_by_college
+        @filtered_residence_halls = ResidenceHall.where(college_id: params[:selected_college])
     end
 
     private

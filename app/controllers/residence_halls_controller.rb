@@ -13,6 +13,7 @@ class ResidenceHallsController < ApplicationController
         @rooms = @residence_hall.rooms
         respond_to do |format|
             format.html 
+            format.js 
             format.json {
                 render :json => @rooms.to_json
             }

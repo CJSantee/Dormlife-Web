@@ -1,4 +1,4 @@
-<%= form_for(@resident) do |f| %>
+<%= form_with(model: @resident) do |f| %>
     <div class="field">
         <%= f.label :first_name %>
         <%= f.text_field :first_name %>
@@ -24,12 +24,16 @@
         <%= f.email_field :email %>
     </div>
     <div class="field">
+        <%= f.label :college %>
+        <%= f.collection_select :college_id, College.all, :id, :name %>
+    </div>
+    <div class="field">
+        <%= f.label :residence_hall %>
+        <%= f.collection_select :residence_hall_id, ResidenceHall.all.where(college_id: :college_id), :id, :name %>
+    </div>
+    <div class="field">
         <%= f.label :room %>
-        <%= f.select(:room_id) do %>
-            <% @rooms.each do |room| %>
-                <%= content_tag(:option, room.room_number, value: room.id) %>
-            <% end %>
-        <% end %>
+        <%= f.collection_select(:room_id, Room.all.where(residence_hall_id: :residence_hall_id), :id, :room_number)%>
     </div>
     <div class="actions">
         <%= f.submit %>

@@ -3,13 +3,8 @@ class CollegesController < ApplicationController
     # GET /colleges
     # GET /colleges.json
     def index
-        @colleges = College.all
-        respond_to do |format|
-            format.html 
-            format.json {
-                render :json => @colleges.to_json
-            }
-        end
+        @colleges = College.all.order(name: :asc)
+        render json: @colleges
     end
 
     def new
@@ -32,6 +27,7 @@ class CollegesController < ApplicationController
         @residence_halls = @college.residence_halls
         respond_to do |format|
             format.html 
+            format.js 
             format.json {
                 render :json => @residence_halls.to_json
             }
