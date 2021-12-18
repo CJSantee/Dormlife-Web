@@ -1,4 +1,4 @@
-class ResidentsController < ApplicationController
+class Api::V1::ResidentsController < ApplicationController
     require 'csv'
 
     def index

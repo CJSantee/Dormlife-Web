@@ -1,4 +1,4 @@
-class RoomsController < ApplicationController
+class Api::V1::RoomsController < ApplicationController
     before_action :get_residence_hall
     before_action :get_college
     before_action :set_room, only: [:show, :edit, :update, :destroy]

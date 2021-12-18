@@ -9,15 +9,17 @@ Rails.application.routes.draw do
 
   post '/residents/import' => 'residents#import'
 
-  get 'filter_residence_halls_by_college' => 'residents#filter_residence_hall_by_college'
-
-  resources :colleges do
-    resources :residence_halls do
-      resources :rooms
+  namespace :api do 
+    namespace :v1 do 
+      resources :colleges do
+        resources :residence_halls do
+          resources :rooms
+        end
+      end
+      resources :residents
     end
   end
 
-  resources :residents
 
-  root 'colleges#index'
+  root 'pages#index'
 end

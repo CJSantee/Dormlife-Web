@@ -1,7 +1,6 @@
-class CollegesController < ApplicationController
+class Api::V1::CollegesController < ApplicationController
     
-    # GET /colleges
-    # GET /colleges.json
+    # GET /api/v1/colleges
     def index
         @colleges = College.all.order(name: :asc)
         render json: @colleges
@@ -20,18 +19,11 @@ class CollegesController < ApplicationController
         end
     end
 
-    # GET /colleges/:id
-    # GET /colleges/:id.json
+    # GET /api/v1/colleges/:id
     def show
         @college = College.find(params[:id])
         @residence_halls = @college.residence_halls
-        respond_to do |format|
-            format.html 
-            format.js 
-            format.json {
-                render :json => @residence_halls.to_json
-            }
-        end
+        render json: @residence_halls
     end
 
     def edit

@@ -7,26 +7,23 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import "jquery"
+// import "jquery"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-$(function() {
-    
-    $("select#resident_college_id").on('change', function() {
-        $.ajax({
-            url: "/colleges/"+$("select#resident_college_id").val()+".js",
-            type: "GET"
-        });
-    });
-
-    $("select#resident_residence_hall_id").on('change', function() {
-        $.ajax({
-            url: "/colleges/"+$("select#resident_college_id").val()+"/residence_halls/"+$("select#resident_residence_hall_id").val()+".js",
-            type: "GET"
-        });
-    });
-
-});
+// $(function() {
+//     $("select#resident_college_id").on('change', function() {
+//         $.ajax({
+//             url: "/colleges/"+$("select#resident_college_id").val()+".js",
+//             type: "GET"
+//         });
+//     });
+//     $("select#resident_residence_hall_id").on('change', function() {
+//         $.ajax({
+//             url: "/colleges/"+$("select#resident_college_id").val()+"/residence_halls/"+$("select#resident_residence_hall_id").val()+".js",
+//             type: "GET"
+//         });
+//     });
+// });

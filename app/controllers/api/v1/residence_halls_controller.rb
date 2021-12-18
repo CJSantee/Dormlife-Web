@@ -1,4 +1,4 @@
-class ResidenceHallsController < ApplicationController
+class Api::V1::ResidenceHallsController < ApplicationController
     before_action :get_college
     before_action :set_residence_hall, only: [:show, :edit, :update, :destroy]
 

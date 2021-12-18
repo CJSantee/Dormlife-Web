@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DormlifeWeb</title>
+    <title>Dormlife</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,13 +13,6 @@
   </head>
 
   <body>
-    <div class="main">
-        <div class="header">
-          <h1>Dormlife</h1>
-          <%= link_to "Colleges", "/colleges" %>
-          <%= link_to "Residents", "/residents" %>
-        </div>
-        <%= yield %>
-    </div>
+    <%= yield %>
   </body>
 </html>
