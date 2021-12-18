@@ -38,7 +38,6 @@ class Api::V1::CollegesController < ApplicationController
 
     def destroy
         @college = College.find(params[:id]).destroy
-        redirect_to "/colleges"
     end
 
     def import 
